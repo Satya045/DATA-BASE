@@ -1,0 +1,29 @@
+Create Table [dbo].[TransDetails]
+(
+    [transaction_number] [varchar](6) NOT NULL,
+    [account_number] [varchar](6) NULL,
+    [transaction_details] [date] NULL,
+    [transaction_medium] [varchar](20) NULL,
+    [transaction_type] [varchar](20) NULL,
+    [transaction_amount] [int] NULL)
+
+	primary key (transaction_number))
+
+
+ALTER TABLE TransDetails
+ADD transaction_numb int  Not NULL
+
+Select*from TransDetails
+
+ALTER TABLE TransDetails
+ADD account_numb int  Not NULL
+
+ALTER TABLE TransDetails
+DROP COLUMN Transaction_details
+
+ALTER TABLE TransDetails
+DROP COLUMN account_number
+
+
+Truncate table TransDetails
+Select * from TransDetails
