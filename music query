@@ -1,0 +1,27 @@
+CREATE TABLE Artist (
+    ArtistId INT NOT NULL,
+    ArtistName CHAR(50) NULL,
+    PRIMARY KEY  (ArtistId)
+);
+
+CREATE TABLE Album (
+    ArtistId INT NOT NULL,
+    AlbumId INT NOT NULL ,
+    AlbumName CHAR(30) NULL,
+    ReleaseYear DATE NULL,
+    PRIMARY KEY  (AlbumId),
+    FOREIGN KEY (ArtistId) REFERENCES Artist(ArtistId)
+);
+
+CREATE TABLE Track (
+    TrackId INT NOT NULL,
+    TrackName CHAR(60) NULL,
+    Writer CHAR(50) NULL,
+    ArtistId INT NOT NULL,
+    AlbumId INT NOT NULL,
+    PRIMARY KEY  (ArtistId,AlbumId,TrackId),
+    FOREIGN KEY (ArtistId) REFERENCES Artist(ArtistId),
+    FOREIGN KEY (AlbumId) REFERENCES Album (AlbumId)
+);
+
+select*from Track
